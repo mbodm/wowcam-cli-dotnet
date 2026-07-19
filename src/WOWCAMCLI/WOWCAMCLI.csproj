@@ -5,19 +5,22 @@
     <TargetFramework Condition="'$([MSBuild]::IsOSPlatform(`Windows`))' == 'true'">net48</TargetFramework>
     <TargetFramework Condition="'$([MSBuild]::IsOSPlatform(`OSX`))' == 'true'">net10.0</TargetFramework>
     <LangVersion>12.0</LangVersion>
-    <RootNamespace>WOWCAM_CLI</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
-    <!-- For Windows 10/11 (targetting .NET Framework 4.8 which is always present there by default) -->
+    <!-- For Windows 10/11 (targeting .NET Framework 4.8, which is always present there by default) -->
+    <Reference Include="System.Xml.Linq" />
+    <Using Include="System.Xml.Linq" />
     <Reference Include="System.Net.Http" />
     <Using Include="System.Net.Http" />
+    <Reference Include="System.IO.Compression" />
+    <Using Include="System.IO.Compression" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0'">
-    <!-- For macOS (targetting .NET 10 as self-contained binary on Apple silicon) -->
+    <!-- For macOS (targeting .NET 10, as self-contained binary on Apple silicon) -->
     <RuntimeIdentifier>osx-arm64</RuntimeIdentifier>
     <SelfContained>true</SelfContained>
     <PublishSingleFile>true</PublishSingleFile>
