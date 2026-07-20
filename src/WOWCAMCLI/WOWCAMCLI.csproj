@@ -26,6 +26,7 @@
     <PublishSingleFile>true</PublishSingleFile>
     <PublishTrimmed>true</PublishTrimmed>
     <PublishReadyToRun>false</PublishReadyToRun>
-  </PropertyGroup>
+    <AssemblyName>wowcamcli</AssemblyName>  
+</PropertyGroup>
 
 </Project>
